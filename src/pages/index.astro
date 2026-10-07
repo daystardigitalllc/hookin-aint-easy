@@ -1,0 +1,325 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TowScene from '../components/TowScene.astro';
+
+const B = import.meta.env.BASE_URL.replace(/\/$/, '');
+const PHONE = '(615) 588-7565';
+const TEL = '+16155887565';
+
+const services = [
+  { t: 'Tire Change & Roadside Assistance', d: "Flat tire got you stranded? We handle quick repairs and changes so you can get back on schedule.", i: 'tire' },
+  { t: 'Jump Start Service', d: 'Dead battery bringing you down? Fast and reliable jump starts for cars and trucks.', i: 'bolt' },
+  { t: 'Light-Duty Towing', d: 'Safe, professional transport for cars, motorcycles and other small vehicles.', i: 'car' },
+  { t: 'Medium-Duty Towing', d: 'Vans and medium trucks, hooked up and hauled with the right equipment for the job.', i: 'truck' },
+];
+
+const why = [
+  { t: 'Reliable Service', d: "When you're stuck on the roadside, you shouldn't have to wonder who to call. We show up and get it handled.", i: 'shield' },
+  { t: 'Fast Response', d: 'Dispatch is on 24/7. Call, tell us where you are, and we are on the way.', i: 'clock' },
+  { t: 'Professional & Trusted', d: 'Careful loading, clear communication, and a team that treats your vehicle like our own.', i: 'hands' },
+  { t: 'Local & Long Distance', d: 'Across town or across Middle Tennessee, we run local tows and long-distance hauls.', i: 'pin' },
+];
+
+const cities = ['Gallatin', 'Hendersonville', 'Goodlettsville', 'Portland', 'White House', 'Springfield', 'Westmoreland', 'Lebanon', 'Mt. Juliet', 'Hartsville', 'Gordonsville', 'Carthage', 'Nashville', 'Madison', 'Old Hickory', 'Ashland City', 'Kingston Springs', 'Pegram', 'Franklin', 'Brentwood'];
+
+const faqs = [
+  ['Are you really open 24/7?', "Yes. Breakdowns don't keep business hours, and neither do we. Call (615) 588-7565 any time of day or night."],
+  ['What can you tow?', 'Light-duty vehicles like cars, motorcycles and other small vehicles, plus medium-duty tows including vans and medium trucks.'],
+  ['How much does a tow cost?', 'Every job is different: distance, vehicle and situation all matter. Call us and we will give you a quote before we hook up.'],
+  ['Where do you service?', 'Roughly a 50-mile radius around Gallatin, TN, including Sumner, Robertson, Wilson and Cheatham counties and the surrounding Middle Tennessee area.'],
+  ['Do you do long-distance tows?', 'Yes. We handle both local and long-distance towing. Call for a quote based on your pickup and drop-off locations.'],
+  ["I'm not sure what's wrong. Can you still help?", "Absolutely. Flat tire, dead battery or something you can't diagnose, call us and we will sort out the right fix or tow."],
+];
+---
+
+<Layout
+  title="Hookin' Ain't Easy Towing & Recovery | Gallatin, TN 24/7 Towing"
+  description="24/7 towing, jump starts, tire changes and roadside assistance in Gallatin, TN and 50 miles around. Light and medium duty towing. Call (615) 588-7565."
+>
+  <div class="top">
+    <div class="wrap">
+      <span><b>24/7</b> towing &amp; roadside assistance</span>
+      <span class="hide-m">896 W Albert Gallatin Ave, Gallatin, TN</span>
+    </div>
+  </div>
+
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Hookin' Ain't Easy Towing & Recovery home"><img src={`${B}/logo.png`} alt="Hookin' Ain't Easy Towing and Recovery" width="82" height="58" /></a>
+      <nav class="main" id="nav" aria-label="Main">
+        <a href="#top">Home</a>
+        <a href="#services">Services</a>
+        <a href="#areas">Areas We Serve</a>
+        <a href="#faq">FAQ</a>
+        <a href="#quote">Contact</a>
+      </nav>
+      <div class="head-cta">
+        <a class="head-phone" href={`tel:${TEL}`}>{PHONE}</a>
+        <a class="btn btn-red btn-sm" href="#quote"><span>Get a Quote</span></a>
+        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-in wrap">
+        <div class="badge"><span class="stars">★★★★★</span><span>Local &amp; trusted · Gallatin, TN · Open 24/7</span></div>
+        <h1><span class="chrome-text">Hookin' Ain't Easy.</span> <span class="l2 red">We Make It Look Easy.</span></h1>
+        <p class="lede">Breaking down? Locked out? Stuck in a bind? Hookin' Ain't Easy Towing &amp; Recovery delivers top-tier towing and roadside help across Middle Tennessee. Call us and we've got your back.</p>
+        <div class="btns">
+          <a class="btn btn-red" href={`tel:${TEL}`}><span>Call {PHONE}</span></a>
+          <a class="btn btn-ghost" href="#quote"><span>Get a Quote</span></a>
+        </div>
+        <ul class="checks">
+          <li>Reliable service</li><li>Fast response</li><li>Light &amp; medium duty</li><li>Local &amp; long distance</li>
+        </ul>
+      </div>
+      <TowScene />
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        {[0, 1].map(() => (
+          <>
+            {['Towing', 'Jump Starts', 'Tire Changes', 'Roadside Assistance', 'Light Duty', 'Medium Duty', 'Local & Long Distance', 'Serving Gallatin & 50 Miles Around'].map((x) => (
+              <><span>{x}</span><span class="dot">✦</span></>
+            ))}
+          </>
+        ))}
+      </div>
+    </div>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head rv"><div class="eyebrow">The short version</div><h2>Call us. <span class="gold-text">We handle the rest.</span></h2></div>
+        <div class="stats rv">
+          <div class="stat"><div class="n" data-count="24">24</div><div class="l">Hours a day</div></div>
+          <div class="stat"><div class="n"><span data-count="7">7</span></div><div class="l">Days a week</div></div>
+          <div class="stat"><div class="n"><span data-count="50">50</span><small style="font-size:.5em"> mi</small></div><div class="l">Service radius</div></div>
+          <div class="stat"><div class="n"><span data-count="4">4</span></div><div class="l">Counties covered</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec services" id="services">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <div class="eyebrow">What we do</div>
+          <h2>Four ways we get you <span class="red">back on the road</span></h2>
+          <p>Whether you're dealing with a flat tire, a dead battery, or need a light or medium-duty tow in Gallatin and the surrounding community, we've got your back.</p>
+        </div>
+        <div class="cards">
+          {services.map((s, n) => (
+            <article class="card rv">
+              <span class="num">0{n + 1}</span>
+              <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                {s.i === 'tire' && (<><circle cx="32" cy="32" r="24" /><circle cx="32" cy="32" r="10" /><path d="M32 8v14M32 42v14M8 32h14M42 32h14M15 15l10 10M39 39l10 10M49 15L39 25M25 39L15 49" /></>)}
+                {s.i === 'bolt' && (<><rect x="10" y="22" width="44" height="28" rx="3" /><path d="M20 22v-6h8v6M36 22v-6h8v6M34 28l-8 10h8l-4 8" /></>)}
+                {s.i === 'car' && (<><path d="M8 40v-8l6-12h28l8 12h6v8z" /><circle cx="20" cy="42" r="5" fill="#15151a" /><circle cx="46" cy="42" r="5" fill="#15151a" /><path d="M14 32h32" /></>)}
+                {s.i === 'truck' && (<><path d="M4 42V24h26v18M30 30h14l10 8v4H30" /><circle cx="16" cy="44" r="5" fill="#15151a" /><circle cx="46" cy="44" r="5" fill="#15151a" /></>)}
+              </svg>
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+              <a class="more" href="#quote">Request service →</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sec fleet">
+      <div class="wrap split">
+        <div class="fleet-art rv"><img src={`${B}/logo.png`} alt="Hookin' Ain't Easy Towing and Recovery logo" loading="lazy" /></div>
+        <div class="rv">
+          <div class="eyebrow">Our fleet</div>
+          <h2>From a motorcycle to <span class="gold-text">a medium-duty truck</span></h2>
+          <p>We match the equipment to the job. Safe, professional transport for everything from motorcycles and cars to vans and medium trucks, loaded carefully and delivered where you need it.</p>
+          <ul class="chips"><li>Cars</li><li>Motorcycles</li><li>Small vehicles</li><li>Vans</li><li>Medium trucks</li></ul>
+          <a class="btn btn-red" href={`tel:${TEL}`}><span>Call for a Quote</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec why">
+      <div class="wrap">
+        <div class="sec-head rv"><div class="eyebrow">Why Hookin' Ain't Easy</div><h2>The crew you call <span class="red">when it counts</span></h2></div>
+        <div class="why-grid">
+          {why.map((w) => (
+            <article class="why-card rv" tabindex="0">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                {w.i === 'shield' && (<><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z" /><path d="M16 24l6 6 11-12" /></>)}
+                {w.i === 'clock' && (<><circle cx="24" cy="28" r="15" /><path d="M24 20v9l6 4M20 6h8M24 6v7" /></>)}
+                {w.i === 'hands' && (<><path d="M4 22l10-8 8 4 8-4 14 8M4 22l16 16c2 2 4 1 5-1M14 14l-4 6M30 14l8 6M20 38l-2-3M26 36l-3-3" /></>)}
+                {w.i === 'pin' && (<><path d="M24 44S10 30 10 19a14 14 0 0128 0c0 11-14 25-14 25z" /><circle cx="24" cy="19" r="5" /></>)}
+              </svg>
+              <h3>{w.t}</h3>
+              <p>{w.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head rv"><div class="eyebrow">How it works</div><h2>Stuck to <span class="gold-text">sorted</span> in three steps</h2></div>
+        <div class="steps">
+          <div class="step rv"><h3>Call us</h3><p>Dial {PHONE} any time, day or night, and tell us where you are and what's going on.</p></div>
+          <div class="step rv"><h3>We roll out</h3><p>We dispatch the right truck and the right gear: a jump, a spare, or a tow.</p></div>
+          <div class="step rv"><h3>Hooked &amp; gone</h3><p>Your vehicle is secured, safely transported, and you're back on your way.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec areas" id="areas">
+      <div class="wrap split">
+        <div class="rv">
+          <div class="eyebrow">Areas we serve</div>
+          <h2 style="font-size:clamp(2.2rem,5vw,3.6rem)">Serving Gallatin &amp; <span class="red">50 miles around</span></h2>
+          <div class="counties"><span>Sumner</span><span>Robertson</span><span>Wilson</span><span>Cheatham</span></div>
+          <p style="color:var(--muted)">Local and long distance across Middle Tennessee. Don't see your town? Call us. If you're within about 50 miles of Gallatin, we can likely get to you.</p>
+          <ul class="city-list">
+            {cities.map((c) => <li class={c === 'Gallatin' ? 'home' : ''}>{c}</li>)}
+          </ul>
+        </div>
+        <svg class="radar rv" viewBox="0 0 400 400" role="img" aria-label="Service radius of 50 miles around Gallatin, TN">
+          <defs>
+            <radialGradient id="rg"><stop offset="0" stop-color="#e6b44a" stop-opacity=".35" /><stop offset="1" stop-color="#e0261b" stop-opacity=".05" /></radialGradient>
+          </defs>
+          <circle cx="200" cy="200" r="180" fill="url(#rg)" stroke="#e6b44a" stroke-width="2" stroke-dasharray="8 8" />
+          <circle cx="200" cy="200" r="120" fill="none" stroke="#3a3a42" />
+          <circle cx="200" cy="200" r="60" fill="none" stroke="#3a3a42" />
+          <path d="M20 200h360M200 20v360" stroke="#2a2a31" />
+          <g class="sweep" style="transform-origin:200px 200px"><path d="M200 200L380 200A180 180 0 0 0 340 86Z" fill="#e0261b" opacity=".25" /></g>
+          <circle cx="200" cy="200" r="9" fill="#e0261b" /><circle cx="200" cy="200" r="18" fill="none" stroke="#e0261b" stroke-width="2" />
+          <text x="200" y="236" text-anchor="middle" fill="#ffd978" font-family="Barlow Condensed" font-style="italic" font-weight="800" font-size="24" letter-spacing="2">GALLATIN</text>
+          <text x="318" y="318" fill="#e6b44a" font-family="Barlow Condensed" font-style="italic" font-weight="800" font-size="22">50 MI</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="sec" id="faq">
+      <div class="wrap">
+        <div class="sec-head rv"><div class="eyebrow">FAQ</div><h2>Quick <span class="gold-text">answers</span></h2></div>
+        <div class="faq rv">
+          {faqs.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sec quote" id="quote">
+      <div class="wrap">
+        <div class="sec-head rv" style="margin-inline:auto;text-align:center"><div class="eyebrow">Get a quote</div><h2>Tell us what's <span class="red">going on</span></h2><p>Fastest way is to call {PHONE}. Or fill this in and it will open a text to our dispatch.</p></div>
+        <form class="form rv" id="qform" novalidate>
+          <div class="progress"><i class="on"></i><i></i><i></i></div>
+          <div class="step-label" id="slabel">Step 1 of 3</div>
+          <fieldset class="fs on">
+            <h3>What do you need?</h3>
+            <div class="opts">
+              {['Tire change / roadside assistance', 'Jump start', 'Light-duty tow (car, motorcycle)', 'Medium-duty tow (van, truck)', 'Long-distance tow', 'Not sure'].map((o, i) => (
+                <label class="opt"><input type="radio" name="svc" value={o} checked={i === 0} /><span>{o}</span></label>
+              ))}
+            </div>
+          </fieldset>
+          <fieldset class="fs">
+            <h3>How can we reach you?</h3>
+            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required /></div>
+            <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required /></div>
+          </fieldset>
+          <fieldset class="fs">
+            <h3>Where are you?</h3>
+            <div class="field"><label for="f-loc">Location / address</label><input id="f-loc" name="loc" autocomplete="street-address" required /></div>
+            <div class="field"><label for="f-note">Vehicle &amp; notes (year, make, model, what's wrong)</label><textarea id="f-note" name="note" rows="3"></textarea></div>
+          </fieldset>
+          <div class="err" id="err" role="alert"></div>
+          <div class="form-nav">
+            <button type="button" class="btn btn-ghost" id="back" style="visibility:hidden"><span>Back</span></button>
+            <button type="button" class="btn btn-red" id="next"><span>Continue</span></button>
+          </div>
+          <p class="hint">Emergency? Don't wait on a form, call <a href={`tel:${TEL}`} style="color:var(--gold-2)">{PHONE}</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="sec cta">
+      <div class="wrap">
+        <img src={`${B}/logo.png`} alt="" loading="lazy" />
+        <h2 class="chrome-text">Need a tow?</h2>
+        <a class="big gold-text" href={`tel:${TEL}`}>{PHONE}</a>
+        <a class="btn btn-red" href={`tel:${TEL}`}><span>Call now. We're here 24/7</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="brand" href="#top"><img src={`${B}/logo.png`} alt="Hookin' Ain't Easy Towing and Recovery" /></a>
+          <p>Hookin' Ain't Easy Towing &amp; Recovery. Top-tier towing and roadside help across Middle Tennessee.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul><li>Tire change &amp; roadside</li><li>Jump starts</li><li>Light-duty towing</li><li>Medium-duty towing</li></ul>
+        </div>
+        <div>
+          <h4>Areas</h4>
+          <ul><li>Sumner County</li><li>Robertson County</li><li>Wilson County</li><li>Cheatham County</li></ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href={`tel:${TEL}`}>{PHONE}</a></li>
+            <li>896 W Albert Gallatin Ave<br />Gallatin, TN</li>
+            <li>Open 24 hours, 7 days a week</li>
+          </ul>
+        </div>
+      </div>
+      <div class="legal"><span>© {new Date().getFullYear()} Hookin' Ain't Easy Towing &amp; Recovery. All rights reserved.</span><span>Slow down. Move over.</span></div>
+    </div>
+  </footer>
+
+  <div class="mbar"><a href={`tel:${TEL}`}>Call</a><a href={`sms:${TEL}`}>Text</a><a href="#quote">Quote</a></div>
+
+  <script is:inline define:vars={{ TEL }}>
+    document.querySelector('.sweep') && document.querySelector('.sweep').animate([{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], { duration: 6000, iterations: Infinity });
+
+    const burger = document.getElementById('burger'), nav = document.getElementById('nav');
+    burger.addEventListener('click', () => { const o = nav.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+    nav.addEventListener('click', (e) => { if (e.target.tagName === 'A') { nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); } });
+
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+    document.querySelectorAll('.rv').forEach((el) => io.observe(el));
+
+    const cio = new IntersectionObserver((es) => es.forEach((e) => {
+      if (!e.isIntersecting) return; cio.unobserve(e.target);
+      const end = +e.target.dataset.count, t0 = performance.now();
+      const tick = (t) => { const p = Math.min(1, (t - t0) / 1200); e.target.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); };
+      requestAnimationFrame(tick);
+    }), { threshold: 0.6 });
+    document.querySelectorAll('[data-count]').forEach((el) => cio.observe(el));
+
+    // multi-step quote form -> opens a text message to dispatch
+    const form = document.getElementById('qform'), steps = [...form.querySelectorAll('.fs')], bars = [...form.querySelectorAll('.progress i')];
+    const next = document.getElementById('next'), back = document.getElementById('back'), err = document.getElementById('err'), label = document.getElementById('slabel');
+    let s = 0;
+    const show = () => {
+      steps.forEach((f, i) => f.classList.toggle('on', i === s));
+      bars.forEach((b, i) => b.classList.toggle('on', i <= s));
+      label.textContent = `Step ${s + 1} of 3`;
+      back.style.visibility = s ? 'visible' : 'hidden';
+      next.firstElementChild.textContent = s === 2 ? 'Send Request' : 'Continue';
+      err.textContent = '';
+    };
+    next.addEventListener('click', () => {
+      const missing = [...steps[s].querySelectorAll('[required]')].find((i) => !i.value.trim());
+      if (missing) { err.textContent = 'Please fill in the required field.'; missing.focus(); return; }
+      if (s < 2) { s++; show(); return; }
+      const d = Object.fromEntries(new FormData(form));
+      const body = `Quote request: ${d.svc}\nName: ${d.name}\nPhone: ${d.phone}\nLocation: ${d.loc}\nNotes: ${d.note || '-'}`;
+      location.href = `sms:${TEL}?&body=${encodeURIComponent(body)}`;
+    });
+    back.addEventListener('click', () => { if (s) { s--; show(); } });
+  </script>
+</Layout>
