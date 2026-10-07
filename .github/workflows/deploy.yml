@@ -21,6 +21,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          BASE_PATH: /hookin-aint-easy
+          SITE_URL: https://daystardigitalllc.github.io
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
